@@ -1,0 +1,19 @@
+<form class="form" (ngSubmit) = "cadastrar()">
+<input type="text"[(ngModel)]="mensagem" name="text">
+<input type="text"[(ngModel)]="prioridade" name="prioridade">
+
+<button type="submit">Salvar</button>
+</form>
+<table>
+  <th>Valor</th>
+  <th>Prioridade</th>
+
+  <tr *ngFor="let t of todos">
+    <td>{{t.mensagem}}</td>
+    <td>{{t.prioridade}}</td>
+
+  </tr>
+</table>
+<ng-template #listaVazia>
+  <p>Nenhuma transferência cadastrada</p>
+</ng-template>
