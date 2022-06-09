@@ -23,11 +23,15 @@ export class PrincipalComponent implements OnInit {
   cadastrar(){
 
     this.all = this.servico.get("todo");
+    if (this.all != null){
     let todos = this.all.split(",");
     this.todos = todos;
     this.todos.push(this.mensagem);
     console.log(this.todos);
     this.servico.set("todo", this.mensagem);
+    }else{
+      this.servico.set("todo", this.mensagem);
+    }
 
     this.ngOnInit();
   }
@@ -36,7 +40,7 @@ export class PrincipalComponent implements OnInit {
   ngOnInit(): void {
     //[{mensagem: "teste", prioridade: "primaria"}]
     this.all = this.servico.get("todo");
-    if (this.all.length > 0){
+    if (this.all != null){
     let todos = this.all.split(",");
     this.todos = todos;
     }
