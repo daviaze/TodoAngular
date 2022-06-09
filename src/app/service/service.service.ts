@@ -16,15 +16,8 @@ export class ServiceService {
    }
 
 set(key: string, value: any){
-  let td = this.get("todo");
-  console.log(td);
 
-  this.todos.push(value);
-
-  let tds = this.todos;
-
-  this.storage.setItem(key, tds.toString())
-  console.log(this.todos);
+  this.storage.setItem(key, value)
 }
 
 get(key: string): any{

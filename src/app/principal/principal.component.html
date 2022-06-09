@@ -1,3 +1,4 @@
+<h2 class="display-1">Todo!</h2>
 <div class="todo">
 <form class="form" (ngSubmit) = "cadastrar()">
 <input type="text" [(ngModel)]="mensagem" name="mensagem" class="form-control" id="formGroupExampleInput" placeholder="Coloque seu todo aqui">
@@ -5,12 +6,19 @@
 <button type="submit" class="btn btn-info">Todo</button>
 </form>
 
-
+<div *ngIf="todos.length > 0; else listaVazia">
 <div class="list-group" *ngFor="let t of todos">
   <a class="list-group-item list-group-item list-group-item-info">{{t}}</a>
 </div>
 </div>
-
-<ng-template #listaVazia>
-  <p>Nenhuma transferência cadastrada</p>
+<ng-template #listaVazia class="template">
+  <p class="template-vazio">Nenhum todo cadastrado</p>
 </ng-template>
+
+<ng-template #alert>
+  <div class="alert alert-success" role="alert">
+    This is a success alert—check it out!
+  </div>
+</ng-template>
+</div>
+

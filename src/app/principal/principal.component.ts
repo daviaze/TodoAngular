@@ -11,7 +11,7 @@ import { Guid } from 'guid-typescript';
 export class PrincipalComponent implements OnInit {
 
   mensagem : string = "";
-  todos?: string[] | null;
+  todos: string[];
   all : string = "";
 
   constructor(private servico : ServiceService) {
@@ -27,8 +27,9 @@ export class PrincipalComponent implements OnInit {
     let todos = this.all.split(",");
     this.todos = todos;
     this.todos.push(this.mensagem);
-    console.log(this.todos);
-    this.servico.set("todo", this.mensagem);
+    console.log("All:"+this.all);
+    console.log("Todos:"+this.todos)
+    this.servico.set("todo", this.todos);
     }else{
       this.servico.set("todo", this.mensagem);
     }
