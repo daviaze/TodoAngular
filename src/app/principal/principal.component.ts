@@ -36,7 +36,9 @@ export class PrincipalComponent implements OnInit {
   ngOnInit(): void {
     //[{mensagem: "teste", prioridade: "primaria"}]
     this.all = this.servico.get("todo");
+    if (this.all.length > 0){
     let todos = this.all.split(",");
     this.todos = todos;
+    }
   }
 }
