@@ -1,19 +1,16 @@
+<div class="todo">
 <form class="form" (ngSubmit) = "cadastrar()">
-<input type="text"[(ngModel)]="mensagem" name="text">
-<input type="text"[(ngModel)]="prioridade" name="prioridade">
+<input type="text" [(ngModel)]="mensagem" name="mensagem" class="form-control" id="formGroupExampleInput" placeholder="Coloque seu todo aqui">
 
-<button type="submit">Salvar</button>
+<button type="submit" class="btn btn-info">Todo</button>
 </form>
-<table>
-  <th>Valor</th>
-  <th>Prioridade</th>
 
-  <tr *ngFor="let t of todos">
-    <td>{{t.mensagem}}</td>
-    <td>{{t.prioridade}}</td>
 
-  </tr>
-</table>
+<div class="list-group" *ngFor="let t of todos">
+  <a class="list-group-item list-group-item list-group-item-info">{{t}}</a>
+</div>
+</div>
+
 <ng-template #listaVazia>
   <p>Nenhuma transferência cadastrada</p>
 </ng-template>

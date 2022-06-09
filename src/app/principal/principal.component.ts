@@ -11,28 +11,32 @@ import { Guid } from 'guid-typescript';
 export class PrincipalComponent implements OnInit {
 
   mensagem : string = "";
-  prioridade : string = "";
-  todos?: Todo[];
-  id: number;
-  todo : Todo;
+  todos?: string[] | null;
+  all : string = "";
 
   constructor(private servico : ServiceService) {
-    this.id = 0;
+
     this.todos = [];
-    this.todo = new Todo();
+
   }
 
   cadastrar(){
-    this.id+=1;
-    this.todo = new Todo(this.mensagem, this.prioridade);
-    this.servico.set("todo", this.todo);
+
+    this.all = this.servico.get("todo");
+    let todos = this.all.split(",");
+    this.todos = todos;
+    this.todos.push(this.mensagem);
+    console.log(this.todos);
+    this.servico.set("todo", this.mensagem);
+
+    this.ngOnInit();
   }
 
 
   ngOnInit(): void {
     //[{mensagem: "teste", prioridade: "primaria"}]
-
-      console.log(this.servico.get("523f53e9-68c4-b10e-7228-97a8b43a5ff3"));
+    this.all = this.servico.get("todo");
+    let todos = this.all.split(",");
+    this.todos = todos;
   }
-
 }

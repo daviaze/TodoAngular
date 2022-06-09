@@ -1,3 +1,4 @@
+import { Todo } from './../todo';
 import { JsonPipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 
@@ -15,22 +16,21 @@ export class ServiceService {
    }
 
 set(key: string, value: any){
-  this.todos.push(this.get("todo"));
+  let td = this.get("todo");
+  console.log(td);
+
   this.todos.push(value);
+
   let tds = this.todos;
+
   this.storage.setItem(key, tds.toString())
   console.log(this.todos);
 }
 
-get(key: string){
+get(key: string): any{
   if (this.storage) {
     return this.storage.getItem(key);
   }
   return null;
 }
-
-getAll(){
-  let qtd =  this.storage.getItem.length - 1;
-}
-
 }

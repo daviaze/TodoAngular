@@ -1,10 +1,10 @@
 export class Todo {
-  mensagem : string;
-  prioridade : string;
+  mensagem : string | undefined;
+  id : string | undefined
 
-  constructor(todo? : string, priori? : string){
-    this.mensagem = "";
-    this.prioridade = "";
+  constructor(todo? : string, id?: string){
+    this.mensagem = todo;
+    this.id = id;
   }
 
 }

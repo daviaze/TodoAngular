@@ -17,6 +17,6 @@ import { PrincipalComponent } from './principal/principal.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, PrincipalComponent]
 })
 export class AppModule { }

@@ -1,0 +1,21 @@
+.list-group{
+  width: 40rem;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.form{
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form-control{
+  width: 35.6rem;
+  margin-right: 10px;
+}
+
+.todo{
+  display: flex;
+  flex-direction: column;
+}
